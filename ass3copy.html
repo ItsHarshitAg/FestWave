@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festwave - Event Catalog</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2n1hYGx93CEqimAfaV6CpCExl5+IEjwL" crossorigin="anonymous">
+  <link rel="stylesheet" href="universal.css">
+  <style>
+    .event-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .event-card {
+      max-width: 400px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .event-card img {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+    .parallax-footer {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("Hero3.png");
+  background-color: black;
+  opacity: .9;
+}
+
+.footer-content {
+  text-align: center;
+  padding: 20px;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  color: #fff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+.fest-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px ;
+  background-color: #284b6d;
+  color: #efefd0;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.fest-button:hover {
+  background-color: #3c6e71;
+}
+.text-center {
+  display: flex;
+  justify-content: center;
+}
+iframe {
+      width: 100%;
+      height: 450px; /* Adjust the height as needed */
+      border: 0;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+  </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <header class="mb-auto">
+    <div class="navbar navbar-dark bg-dark">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </div>
+    <section class="hero-section">
+      <div class="hero-image d-flex align-items-center justify-content-center text-center">
+        <div class="hero-text">
+          <h1>Fest Catalog</h1>
+          <p>Discover and explore exciting intercollege fests happening around Bangalore</p>
+        </div>
+      </div>
+      <div class="navbar2 bg-dark">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="#event1">Carvan</a></li>
+          <li class="nav-item"><a class="nav-link" href="#event2">Neurocon</a></li>
+          <li class="nav-item"><a class="nav-link" href="#event3">Umang</a></li>
+        </ul>
+      </div>
+    </section>
+  </header>
+
+  <main class="flex-grow-3">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <section id="event1" class="event-section d-none">
+        <div class="event-card">
+          <img src="Event1.png" alt="Event Image">
+          <h2>Indian Institute of Science (IISc)</h2>
+          <p>Date: March 15-17, 2024</p>
+          <p>Location: CV Raman Rd, Bengaluru</p>
+          <a href="#">Explore Events</a>
+        </div>
+      </section>
+      <section id="event2" class="event-section d-none">
+        <div class="event-card">
+          <img src="Event2.png" alt="Event Image">
+          <h2>National Institute of Mental Health and Neurosciences (NIMHANS)</h2>
+          <p>Date: April 5-7, 2024</p>
+          <p>Location: Hosur Rd, Lakkasandra, Ayappa Garden</p>
+          <a href="#">Explore Events</a>
+        </div>
+      </section>
+<section id="event3" class="event-section d-none">
+        <div class="event-card">
+          <img src="Event3.png" alt="Event Image">
+          <h2>Christ University</h2>
+          <p>Date: April 15-17, 2024</p>
+          <p>Location: Hosur Rd, Lakkasandra, Ayappa Garden</p>
+          <a href="#">Explore Events</a>
+        </div>
+      </section>
+    </div>
+    <div class="text-center mt-4">
+      <button class="btn btn-primary fest-button" onclick="loadFestData()">View All Fests</button>
+    </div> 
+    <div id="output"></div>          
+  </main>
+
+  <footer class="mt-auto parallax-footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Festwave. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15554.402113918257!2d77.59703214591386!3d12.933376946107185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sChrist%20University!5e0!3m2!1sen!2sin!4v1707279377431!5m2!1sen!2sin"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+  </footer>
+
+  <script>
+    function loadFestData() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'fest.xml', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          handleFestData(xhr.responseXML);
+        }
+      };
+      xhr.send();
+    }
+
+    function handleFestData(xmlData) {
+      var outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = '';
+
+      var festNodes = xmlData.getElementsByTagName('festname');
+      for (var i = 0; i < festNodes.length; i++) {
+        var festNode = festNodes[i];
+        var festName = festNode.getAttribute('event');
+        var universityName = festNode.getElementsByTagName('universityname')[0].textContent;
+        var date = festNode.getElementsByTagName('Date')[0].textContent;
+        var location = festNode.getElementsByTagName('Location')[0].textContent;
+
+        var festDetails = `
+          <div>
+            <h3>${festName}</h3>
+            <p>University: ${universityName}</p>
+            <p>Date: ${date}</p>
+            <p>Location: ${location}</p>
+          </div>
+        `;
+
+        outputDiv.innerHTML += festDetails;
+      }
+    }
+  </script>
+    
+</body>
+
+</html>

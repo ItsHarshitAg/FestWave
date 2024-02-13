@@ -174,3 +174,28 @@ body {
   footer .footer-links a:hover {
     text-decoration: underline;
   }
+  .logo {
+    width: 100px;
+    height: 100px;
+    background-color: #284b6d;
+    border-radius: 50%;
+    color: #efefd0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  @keyframes rotateLogo {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .logo-animation {
+    animation: rotateLogo 2s linear infinite;
+  }

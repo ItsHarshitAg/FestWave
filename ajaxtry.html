@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fest Details</title>
+  <style>
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Fest Details</h2>
+  <button onclick="loadFestData()">Load Fest Data</button>
+  <div id="output"></div>
+
+  <script>
+    function loadFestData() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'fest.xml', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          handleFestData(xhr.responseXML);
+        }
+      };
+      xhr.send();
+    }
+
+    function handleFestData(xmlData) {
+      var outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = '';
+
+      var festNodes = xmlData.getElementsByTagName('festname');
+      for (var i = 0; i < festNodes.length; i++) {
+        var festNode = festNodes[i];
+        var festName = festNode.getAttribute('event');
+        var universityName = festNode.getElementsByTagName('universityname')[0].textContent;
+        var date = festNode.getElementsByTagName('Date')[0].textContent;
+        var location = festNode.getElementsByTagName('Location')[0].textContent;
+
+        var festDetails = `
+          <div>
+            <h3>${festName}</h3>
+            <p>University: ${universityName}</p>
+            <p>Date: ${date}</p>
+            <p>Location: ${location}</p>
+          </div>
+        `;
+
+        outputDiv.innerHTML += festDetails;
+      }
+    }
+  </script>
+
+</body>
+</html>

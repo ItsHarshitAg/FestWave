@@ -1,0 +1,64 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type = "text/xsl" href = "festxsl.xsl"?>
+<Event>
+    <festname event="Carvan">
+        <universityname>Indian Institute of Science</universityname>
+        <Date>2024-17-03</Date>
+        <Location>CV Raman Road, Bengaluru</Location>
+        <Department>Computer Science</Department>
+        <Events>
+            <E1>Hackthon</E1>
+            <E2>Workshops</E2>
+            <E3>Startups Showcase</E3>  
+            <E4>Tech Exhibit</E4>
+        </Events>
+    </festname>
+    <festname event="Neurocon">
+        <universityname>National Institute of Mental Health and Neurosciences</universityname>
+        <Date>2024-27-04</Date>
+        <Location>Hosur Rd, Lakkasandra, Ayappa Garden</Location>
+        <Department>Data Science</Department>
+        <Events>
+            <E1>Lectures and Symposia</E1>
+            <E2>Poster Presentation</E2>
+            <E3>Exhibitions</E3>  
+            <E4>Workshops</E4>
+        </Events>
+    </festname>
+    <festname event="Aero India">
+        <universityname>Yelahanka Air Force Station</universityname>
+        <Date>2024-27-03</Date>
+        <Location>CV Raman Road, Bengaluru</Location>
+        <Department>Aerospace Engineering</Department>
+        <Events>
+            <E1>Flight Display</E1>
+            <E2>Static Display</E2>
+            <E3>Exhibition</E3>  
+            <E4>Workshops</E4>
+        </Events>
+    </festname>
+    <festname event="Bangalore Fashion Week">
+        <universityname>Indian Institute of Science</universityname>
+        <Date>2024-11-05</Date>
+        <Location>CV Raman Road, Bengaluru</Location>
+        <Department>Cultural and Fashion</Department>
+        <Events>
+            <E1>Runway Shows</E1>
+            <E2>Exhibition</E2>
+            <E3>Workshops</E3>  
+            <E4>Networking</E4>
+        </Events>
+    </festname>
+    <festname event="Bangalore Literature Festival">
+        <universityname>Indian Institute of Science</universityname>
+        <Date>2024-13-04</Date>
+        <Location>CV Raman Road, Bengaluru</Location>
+        <Department>English</Department>
+        <Events>
+            <E1>Book Launch</E1>
+            <E2>Panel Discussions</E2>
+            <E3>Workshops</E3>  
+            <E4>Networking</E4>
+        </Events>
+    </festname>
+</Event> 

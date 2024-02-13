@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Fest Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 70px;
+      letter-spacing: 8px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      margin: 0;
+    }
+
+    .hero {
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 650px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: baseline;
+      position: relative;
+      background-image: url(/herobg.avif);
+      border: none;
+      border-radius: none;
+      padding-bottom: 50px;
+    }
+
+    .navbar {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .navbar a {
+      color: white;
+      padding: 50px;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #f7c59f;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid grey;
+      border-radius: 3px;
+      padding: 5px;
+      position: absolute;
+      top: 20px;
+      right: 60px;
+    }
+
+    .search-bar input {
+      border: none;
+      padding: 5px;
+    }
+
+    .user {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid grey;
+      border-radius: 4px;
+      padding: 10px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 10px auto;
+      padding: 0px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    .universities {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .university-box {
+      background-color: #fff;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .university-box img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .university-box h3 {
+      margin-top: 0;
+    }
+
+    .footer {
+      background-color: #284b6d;
+      color: #efefd0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <h1>FESTWAVE</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Events">
+        </div>
+         <div class="user">
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="navbar">
+            <a href="Home.html">Home</a>
+            <a href="Events.html">Events</a>
+            <a href="About.html">About</a>
+            <a href="universities.html">Universities</a>
+            <a href="halloffame.html">Hall of Fame</a>
+            <a href="contact.html">Contact</a>
+        </div> 
+    </div>
+      <div class="container">
+        <div class="card">
+            <h2>Welcome to FestWave. </h2>
+            <p>A website that will provide you all the information regarding the fests and events going on around you.</p>
+            <p>Learn more about the events, performances, and activities at the fest by browsing our website.</p>
+        </div>
+    </div>
+
+    <div class="universities">
+      <div class="university-box">
+        <img src="university1.jpg" alt="University 1">
+        <h3>University 1</h3>
+        <p>Description of University 1</p>
+      </div>
+      <div class="university-box">
+        <img src="university2.jpg" alt="University 2">
+        <h3>University 2</h3>
+        <p>Description of University 2</p>
+      </div>
+      <div class="university-box">
+        <img src="university3.jpg" alt="University 3">
+        <h3>University 3</h3>
+        <p>Description of University 3</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2024 FestWave. All rights reserved.</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festwave - Caravan Registration</title>
+  <style>
+    body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+}
+
+header, main, footer {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+body {
+      font-family: sans-serif;
+      background-color: #d9d9d9; /* Applied background color */
+    }
+
+    header,
+    main,
+    footer {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Styles for the navigation tab */
+    header nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #fff; /* Added white text color for better visibility */
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    header nav a.active {
+      background-color: #000; /* Jet black color for active tab */
+    }
+
+.event-card h2 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.event-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Styles for the registration form */
+.registration-form {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.registration-form h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+textarea {
+  height: 150px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Additional image enhancements */
+.event-card img {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+}
+
+.registration-form {
+  background-image: url("path/to/subtle-pattern.png"); /* Add a subtle pattern for visual interest */
+  background-size: cover;
+}
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Header content here -->
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Caravan Event Page -->
+      <section id="caravan" class="event-section">
+        <div class="event-card">
+          <!-- Event card content here -->
+        </div>
+        <div class="registration-form">
+          <h2>Registration Form</h2>
+          <form action="submit_registration.php" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name:</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number:</label>
+              <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="university">University/Institution:</label>
+              <input type="text" id="university" name="university" required>
+            </div>
+            <div class="form-group">
+              <label for="year">Year of Study:</label>
+              <select id="year" name="year" required>
+                <option value="1st">1st Year</option>
+                <option value="2nd">2nd Year</option>
+                <option value="3rd">3rd Year</option>
+                <option value="4th">4th Year</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="interests">Interests (comma-separated):</label>
+              <input type="text" id="interests" name="interests" required>
+            </div>
+            <div class="form-group">
+              <label for="comments">About Me:</label>
+              <textarea id="comments" name="comments"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Register">
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Footer content here -->
+  </footer>
+
+</body>
+
+</html>
