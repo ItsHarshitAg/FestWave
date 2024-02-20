@@ -1,0 +1,247 @@
+<?php
+// Assuming you have a database connection established
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "FestWave";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festwave - Event Catalog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2n1hYGx93CEqimAfaV6CpCExl5+IEjwL" crossorigin="anonymous">
+        <link rel="stylesheet" href="universal.css">
+        <style>
+            .form-container h2 {
+      color: #284b6d;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #284b6d;
+    }
+    .btn-submit {
+      background-color: #284b6d;
+      color: #efefd0;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background-color: #3c6e71;
+    }
+    #output{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+        </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="mb-auto">
+        <!-- Your navigation bar -->
+        <div class="navbar navbar-dark bg-dark">
+            <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+        <section class="hero-section">
+            <div class="hero-image d-flex align-items-center justify-content-center text-center">
+            <div class="hero-text">
+                <h1>Fest Catalog</h1>
+                <p>Discover and explore exciting intercollege fests happening around Bangalore</p>
+            </div>
+            </div>
+        </section>
+    </header>
+
+    <main class="flex-grow-3">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <?php
+            // Fetch events from the database
+            $sql = "SELECT * FROM events";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<section class="event-section">';
+                    echo '<div class="event-card">';
+                    echo '<img src="EventPlaceholder.png" alt="Event Image">'; // Replace with actual image path
+                    echo '<h2>' . $row["event_name"] . '</h2>';
+                    echo '<p>Date: ' . $row["event_date"] . '</p>';
+                    echo '<p>Location: ' . $row["location"] . '</p>';
+                    echo '<a href="#">Explore Events</a>';
+                    echo '</div>';
+                    echo '</section>';
+                }
+            } else {
+                echo "0 results";
+            }
+
+            // Close the database connection
+            $conn->close();
+            ?>
+        </div>
+        <!-- Your existing HTML content here -->
+        <!-- University Event Posting Form -->
+        <div class="form-container">
+        <h2>University Event Posting</h2>
+        <form id="eventForm">
+            <div class="form-group">
+            <label for="eventName">Event Name</label>
+            <input type="text" class="form-control" id="eventName" placeholder="Enter Event Name" required>
+            </div>
+            <div class="form-group">
+            <label for="universityName">University Name</label>
+            <input type="text" class="form-control" id="universityName" placeholder="Enter University Name" required>
+            </div>
+            <div class="form-group">
+            <label for="eventDate">Event Date</label>
+            <input type="date" class="form-control" id="eventDate" required>
+            </div>
+            <div class="form-group">
+            <label for="eventLocation">Event Location</label>
+            <input type="text" class="form-control" id="eventLocation" placeholder="Enter Event Location" required>
+            </div>
+            <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" class="form-control" id="department" placeholder="Enter Department" required>
+            </div>
+            <div class="form-group">
+            <label for="events">Events (Comma-separated)</label>
+            <input type="text" class="form-control" id="events" placeholder="Enter Events" required>
+            </div>
+            <button type="button" class="btn btn-submit" onclick="postEvent()">Submit Event</button>
+        </form>
+        </div>
+
+        <div class="text-center mt-4">
+        <button class="btn btn-primary fest-button" onclick="loadFestData()">View All Fests</button>
+        </div>
+        <div id="output"></div>
+    </main>
+    <footer class="mt-auto parallax-footer">
+    <!-- Your footer content -->
+    <footer class="mt-auto parallax-footer">
+        <div class="footer-content">
+          <p>&copy; 2024 Festwave. All rights reserved.</p>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15554.402113918257!2d77.59703214591386!3d12.933376946107185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sChrist%20University!5e0!3m2!1sen!2sin!4v1707279377431!5m2!1sen!2sin"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+      </footer>
+  </footer>
+    <!-- Your existing HTML content here -->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-pzjw8f+ua5SNTPFh4jkzQ0Adtfjh4Q5d5xrq+u9Mn0uEjh4M5LGPN1h8oL6U1p6Q"
+        crossorigin="anonymous">
+    </script>
+    <script>
+    // Your existing JavaScript code
+    function loadFestData() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'fest.xml', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          handleFestData(xhr.responseXML);
+        }
+      };
+      xhr.send();
+    }
+
+    function handleFestData(xmlData) {
+      var outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = '';
+
+      var festNodes = xmlData.getElementsByTagName('festname');
+      for (var i = 0; i < festNodes.length; i++) {
+        var festNode = festNodes[i];
+        var festName = festNode.getAttribute('event');
+        var universityName = festNode.getElementsByTagName('universityname')[0].textContent;
+        var date = festNode.getElementsByTagName('Date')[0].textContent;
+        var location = festNode.getElementsByTagName('Location')[0].textContent;
+
+        var festDetails = `
+        <div style="width: 300px; margin: 10px; padding: 20px; border: 1px solid #d9d9d9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #c0c0ff; color: #000000; text-align: center; transition: transform 0.3s; border-radius: 8px;">
+          <h2 style="margin-top: 0; color: #284b6d;">${festName}</h2>
+          <p style="margin-top: 10px;">University: ${universityName}</p>
+          <p>Date: ${date}</p>
+          <p>Location: ${location}</p>
+          <a href="#" style="display: inline-block; margin-top: 10px; padding: 8px 16px; background-color: #284b6d; color: #efefd0; text-decoration: none; border-radius: 4px; transition: background-color 0.3s;">Explore Events</a>
+        </div>`;
+        outputDiv.innerHTML += festDetails;
+      }
+    }
+  </script>
+
+    <script>
+    // Set session timeout for 5 minutes
+    const sessionTimeout = 300000; // 5 minutes in milliseconds
+    let timer;
+
+    // Start the session timeout when the page loads
+    function startSessionTimeout() {
+      timer = setTimeout(logoutUser, sessionTimeout);
+    }
+
+    // Reset the session timeout when user interacts with the page
+    function resetSessionTimeout() {
+      clearTimeout(timer);
+      startSessionTimeout();
+    }
+
+    // Logout the user if the session times out
+    function logoutUser() {
+      alert("Session timed out. Please login again.");
+      // You can redirect the user to the login page here
+      // For demonstration purposes, we'll reload the current page
+      location.reload();
+    }
+
+    // Event handler for form submission
+    function postEvent() {
+      // Perform your form submission logic here
+      // ...
+
+      // Reset the session timeout after successful form submission
+      resetSessionTimeout();
+    }
+
+    // Your existing JavaScript code
+    // ...
+
+    // Start the session timeout when the page loads
+    startSessionTimeout();
+  </script>
+</body>
+
+</html>
